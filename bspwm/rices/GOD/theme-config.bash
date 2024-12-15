@@ -1,8 +1,4 @@
-#############################
-#		Emilia Theme		#
-#############################
-
-# (Tokyo Night) colorscheme
+# GOD THEME
 bg="#141b1e"
 fg="#c0caf5"
 
@@ -23,16 +19,16 @@ magentab="#bb9af7"
 cyanb="#7dcfff"
 whiteb="#c0caf5"
 
-# Bspwm options
+# Bspwm 
 BORDER_WIDTH="0"		# Bspwm border
 NORMAL_BC="#141b1e"		# Normal border color
 FOCUSED_BC="#141b1e"	# Focused border color
 
-# Terminal font & size
+# Terminal 
 term_font_size="12.9"
 term_font_name="JetBrainsMono Nerd Font"
 
-# Picom options
+# Picom 
 P_FADE="true"			# Fade true|false
 P_SHADOWS="true"		# Shadows true|false
 SHADOW_C="#000000"		# Shadow color
@@ -49,19 +45,10 @@ dunst_corner_radius='6'
 dunst_font='JetBrainsMono NF Medium 9'
 dunst_border='0'
 
-# Gtk theme vars
+# Gtk theme 
 gtk_theme="TokyoNight-zk"
 gtk_icons="BeautyLine"
 gtk_cursor="Qogirr-Dark"
 geany_theme="z0mbi3-TokyoNight"
 
-# Wallpaper engine
-# Available engines:
-# - Theme	(Set a random wallpaper from rice directory)
-# - CustomDir	(Set a random wallpaper from the directory you specified)
-# - CustomImage	(Sets a specific image as wallpaper)
-# - CustomAnimated (Set an animated wallpaper. "mp4, mkv, gif")
-ENGINE="Theme"
-CUSTOM_DIR="/path/to/dir"
-CUSTOM_WALL="/path/to/image"
-CUSTOM_ANIMATED="$HOME/.config/bspwm/src/assets/animated_wall.mp4"
+
