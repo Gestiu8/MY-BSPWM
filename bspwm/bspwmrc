@@ -1,0 +1,79 @@
+ ___________________________
+< THE AUTHOR SELENE THE GOD >
+ ---------------------------
+   \         __------~~-,
+    \      ,'            ,
+          /               \
+         /                :
+        |                  '
+        |                  |
+        |                  |
+         |   _--           |
+         _| =-.     .-.   ||
+         o|/o/       _.   |
+         /  ~          \ |
+       (____@)  ___~    |
+          |_===~~~.`    |
+       _______.--~     |
+       \________       |
+                \      |
+              __/-___-- -__
+             /            _ \
+read -r RICETHEME < "${HOME}"/.config/bspwm/.rice
+
+
+export PATH="$HOME/.config/bspwm/src:$PATH"
+export XDG_CURRENT_DESKTOP='bspwm'
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
+    bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6' '7' '8' '9' '10'
+
+done
+
+bspc config external_rules_command "${HOME}"/.config/bspwm/src/ExternalRules
+
+bspc config window_gap 15
+bspc config split_ratio               0.53
+bspc config single_monocle            true
+
+bspc config automatic_scheme          longest_side
+bspc config initial_polarity          second_child
+bspc config removal_adjustment        true
+
+bspc config focus_follows_pointer     true
+bspc config pointer_follows_focus     false
+bspc config pointer_motion_interval   7
+bspc config pointer_modifier          mod4
+bspc config pointer_action1           move
+bspc config pointer_action2           resize_side
+bspc config pointer_action3           resize_corner
+
+bspc rule -a scratch sticky=on state=floating focus=on
+
+
+#  polybar
+"$HOME"/.config/bspwm/src/SetSysVars
+
+# sxhkd
+pidof -q sxhkd || { sxhkd -c "${HOME}"/.config/bspwm/src/config/sxhkdrc & }
+
+# theme
+"${HOME}"/.config/bspwm/rices/"${RICETHEME}"/Theme.sh
+
+# picom
+pidof -q picom || { picom --config "${HOME}"/.config/bspwm/src/config/picom.conf & }
+
+# xsettingsd
+pidof -q xsettings || { xsettingsd --config="${HOME}"/.config/bspwm/src/config/xsettingsd >/dev/null 2>&1 & }
+
+#  eww daemon
+pidof -q eww || { eww -c "${HOME}"/.config/bspwm/eww daemon & }
+
+# Launch clipboard daemon
+pidof -q greenclip || { greenclip daemon & }
+
+#  polkit
+pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
+
+#watever you dude : 
